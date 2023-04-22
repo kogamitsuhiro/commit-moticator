@@ -1,12 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    dotenv (2.8.1)
     line-bot-api (1.28.0)
 
 PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  dotenv
   line-bot-api
 
 BUNDLED WITH
