@@ -22,11 +22,13 @@ jobs:
         bundle config path vendor/bundle
         bundle install
 
+    - name: Set dotenv
+      run: |
+        touch .env
+        echo "LINE_CHANNEL_SECRET=${{ secrets.LINE_CHANNEL_SECRET }}" >> .env
+        echo "LINE_CHANNEL_TOKEN=${{ secrets.LINE_CHANNEL_TOKEN }}" >> .env
+        echo "LINE_USER_ID=${{ secrets.LINE_USER_ID }}" >> .env
+        echo "LINE_CHANNEL_ID=${{ secrets.LINE_CHANNEL_ID }}" >> .env
+
     - name: Send message
       run: bundle exec ruby send_line_message.rb
-      env:
-        LINE_CHANNEL_SECRET: ${{ secrets.LINE_CHANNEL_SECRET }}
-        LINE_CHANNEL_TOKEN: ${{ secrets.LINE_CHANNEL_TOKEN }}
-        LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
-        LINE_CHANNEL_ID: ${{ secrets.LINE_CHANNEL_ID }}
-        
