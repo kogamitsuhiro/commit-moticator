@@ -2,7 +2,7 @@ name: Send LINE Message
 
 on:
   schedule:
-    - cron: "0 22 * * *"
+    - cron: "0 13 * * *"
 
 jobs:
   send_message:
@@ -31,4 +31,4 @@ jobs:
         echo "LINE_CHANNEL_ID=${{ secrets.LINE_CHANNEL_ID }}" >> .env
 
     - name: Send message
-      run: bundle exec ruby send_line_message.rb
+      run: bundle exec ruby src/send_line_message.rb
